@@ -1,0 +1,17 @@
+check-multiple-camera-multiple-device-connection:
+    scale: 1
+    startup: yes
+    always: yes
+    privileged: yes
+    env:
+      MYSQL_HOST: mysql
+      MYSQL_USER: XXXXXX
+      MYSQL_PASSWORD: XXXXXXXXXX
+      MYSQL_DATABASE: XXXXXXXXXX
+      DEST_DEVICE_NAME: XXXXXXX
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672/pokayoke
+      QUEUE_TO_CAMERA_1: stream-usb-video-by-rtsp-multiple-camera-1-queue
+      QUEUE_TO_CAMERA_2: stream-usb-video-by-rtsp-multiple-camera-2-queue
+      QUEUE_TO_OUTPUT: import-multiple-camera-connection-queue
+    volumeMountPathList:
+      - /dev:/dev

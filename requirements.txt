@@ -1,0 +1,4 @@
+mysqlclient==2.0.3
+simplejson
+git+https://github.com/latonaio/rabbitmq-python-client.git@main#egg=rabbitmq_client
+git+https://github.com/latonaio/python-logging-library.git@main#egg=custom_logger
