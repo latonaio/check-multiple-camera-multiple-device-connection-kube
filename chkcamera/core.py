@@ -21,7 +21,7 @@ DEVICE_NAME = os.environ.get("DEVICE_NAME")
 DEST_DEVICE_NAME = os.environ.get("DEST_DEVICE_NAME", "")
 
 RABBITMQ_URL = os.environ.get("RABBITMQ_URL")
-QUEUE_TO_CAMERA_1 = os.environ.get("QUEUE_TO_CAMERA_1")
+QUEUE_TO_CAMERA = os.environ.get("QUEUE_TO_CAMERA")
 QUEUE_TO_CAMERA_2 = os.environ.get("QUEUE_TO_CAMERA_2")
 QUEUE_TO_OUTPUT = os.environ.get("QUEUE_TO_OUTPUT")
 
@@ -131,7 +131,7 @@ async def main():
     client = await RabbitmqClient.create(
         RABBITMQ_URL,
         [],
-        [QUEUE_TO_CAMERA_1, QUEUE_TO_CAMERA_2, QUEUE_TO_OUTPUT]
+        [QUEUE_TO_CAMERA, QUEUE_TO_CAMERA_2, QUEUE_TO_OUTPUT]
     )
 
     dm = DeviceMonitorByGstreamer("Video/Source")
@@ -167,7 +167,7 @@ async def main():
                         logger.info("start camera : %s %s", metadata, use)
 
                         use_queue = {
-                            'camera-1': QUEUE_TO_CAMERA_1,
+                            'camera-1': QUEUE_TO_CAMERA,
                             'camera-2': QUEUE_TO_CAMERA_2,
                         }.get(use.get('use'))
                         await client.send(use_queue, metadata)

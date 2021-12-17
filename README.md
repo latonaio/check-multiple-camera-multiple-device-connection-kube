@@ -40,7 +40,7 @@ check-multiple-camera-multiple-device-connection:
       MYSQL_DATABASE: XXXXXXXXXX
       DEST_DEVICE_NAME: XXXXXXX
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672/pokayoke
-      QUEUE_TO_CAMERA_1: stream-usb-video-by-rtsp-multiple-camera-1-queue
+      QUEUE_TO_CAMERA: stream-usb-video-by-rtsp-multiple-camera-queue
       QUEUE_TO_CAMERA_2: stream-usb-video-by-rtsp-multiple-camera-2-queue
       QUEUE_TO_OUTPUT: import-multiple-camera-connection-queue
     volumeMountPathList:
